@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.log.logout();
-    alert("You are logged out!! Your data from this session is");
+    alert("You are logged out!! Your data from this session is deleted!!");
     this.logged=false;
 
   }
