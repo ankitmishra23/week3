@@ -1,0 +1,43 @@
+<fieldset>
+    <legend>Register</legend>
+<form [formGroup]="register" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">User Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputuser" formControlName="username">
+          <div *ngIf="submitform && register.controls['username'].invalid"><div *ngIf="submitform && register.controls['username'].errors.required" class="warningdiv">User name is required.</div></div>
+        </div>
+      </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3" formControlName="email">
+        <div *ngIf="submitform && register.controls['email'].invalid"><div  *ngIf="submitform && register.controls['email'].errors.required" class="warningdiv">email is required</div><div *ngIf="submitform && register.controls['email'].errors.email" class="warningdiv">enter correct email format</div></div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" formControlName="password">
+        <div *ngIf="submitform && register.controls['password'].invalid"><div *ngIf="submitform && register.controls['password'].errors.required" class="warningdiv">password is required.</div><div *ngIf="submitform && register.controls['password'].value lt 8" class="warningdiv">Minimum 8 digits are required.</div></div>
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck1">
+          <label class="form-check-label" for="gridCheck1">
+            I accept that all the information provided by me is valid.
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" [disabled]="register.pristine">Register</button>
+      </div>
+    </div>
+  </form>
+  </fieldset>

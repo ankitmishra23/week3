@@ -1,0 +1,70 @@
+<div >
+
+    <div class="alert alert-danger " role="alert" style="width: 250px; float: left;" title="Updates every day">
+        <p>TOTAL CONFIRMED:{{totalconfirmed}}</p>
+    </div>
+    <div class="alert alert-success" role="alert" style="width: 250px; float: left;" title="Updates every day">
+        <p>TOTAL RECOVERED:{{totalrecovered}}</p>
+    </div>
+    <div class="alert alert-dark" role="alert" style="width: 250px;float: left;" title="Updates every day">
+        <p>TOTAL DEATHS:{{totaldeaths}}</p>
+    </div>
+
+</div>
+
+
+
+
+<div class="chart-wrapper" style="height: 500px; width: 800px; margin-left: 300px;">
+    <canvas baseChart 
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [colors]="colors"
+    [chartType]="doughnutChartType">
+  </canvas>
+</div>
+
+
+<div style="height:500px" *ngIf="tablestatus" title="Live data">
+<table class="table table-dark">
+    <thead>
+      <tr>
+          
+        <th scope="col">State</th>
+        <th scope="col">Active Cases</th>
+        <th scope="col">Recovered Cases</th>
+        <th scope="col">Confirmed Cases</th>
+        <th scope="col">Deaths</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let st of states;">
+            <td (click)="showgraph(st.state)">{{st.state}}</td>
+            <td>{{st.active}}</td>
+            <td>{{st.recovered}}</td>
+            <td>{{st.confirmed}}</td>
+            <td>{{st.deaths}}</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+
+
+
+    <div *ngIf="!tablestatus" style="background-color: darksalmon;">
+        <div class="chart-wrapper" style="height: 500px; width: 800px; margin-left: 300px;">
+                <canvas baseChart 
+                [data]="newdoughnutChartData"
+                [labels]="newdoughnutChartLabels"
+                [colors]="newcolors"
+                [chartType]="newdoughnutChartType">
+                </canvas>
+        </div>
+    <button type="button" class="btn btn-secondary" (click)="toggleshow()">Go Back</button>
+    </div>
+
+
+
+    
+
+

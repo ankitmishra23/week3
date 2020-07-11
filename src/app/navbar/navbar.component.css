@@ -1,0 +1,12 @@
+.render_space
+{
+    background-color: lightcoral;
+    height: 570px;
+}
+.footer_space
+{
+    background-color: black;
+    height: 46px;
+    text-align: center;
+    color: white;
+}

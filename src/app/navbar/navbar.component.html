@@ -1,0 +1,17 @@
+<div class="footer_space">
+  <h2>Stay Home! Stay Safe!</h2>
+</div>
+
+<nav class="navbar navbar-light bg-white">
+    <form class="form-inline">
+      <button class="btn btn-sm btn-outline-danger " type="button" routerLink="home">Home</button>
+      <button class="btn btn-sm btn-outline-danger" type="button" routerLink="register">Register</button>
+      <button class="btn btn-sm btn-outline-danger" type="button" routerLink="login">Log In</button>
+      <button class="btn btn-sm btn-outline-danger" type="button" routerLink="tracker">Tracker</button>
+      <button class="btn btn-sm btn-outline-danger" type="button" (click)="logout()">Log out</button>
+    </form>
+  </nav>
+
+  <div class="render_space">
+    <router-outlet></router-outlet>
+  </div>
